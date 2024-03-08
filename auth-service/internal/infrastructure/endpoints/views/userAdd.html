@@ -1,0 +1,46 @@
+{{define "userAdd"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add papug</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>Add user</h2>
+    {{if .ErrEmailOccupied}} <h2>Email is already occupied!</h2> {{end}}
+    {{if .ErrPasswordTooShort}} <h2>Passowrd is too short!</h2> {{end}}
+    <form method="post" action="/users">
+        <p>
+            <label for="name">Name : </label>
+            <input type="text" placeholder="Enter Name" name="name" required {{if .Name}} value="{{.Name}}" {{end}}>
+        </p>
+
+        <p>
+            <label for="email">Email : </label>
+            <input type="text" placeholder="Enter Email" name="email" required {{if .Email}} value="{{.Email}}" {{end}}>
+        </p>
+
+        <p>
+            <label for="role">Role : </label>
+            <select id="role" name="role" required {{if .Role}} value="{{.Role}}" {{end}}>
+                {{range .RoleOptions}}
+                <option value={{.}}>{{.}}</option>
+                {{end}}
+            </select>
+        </p>
+
+        <p>
+            <label>Password : </label>
+            <input type="text" placeholder="Enter Password" name="password" required {{if .Password}}
+                value="{{.Password}}" {{end}}>
+        </p>
+
+        <button type="submit">Create user</button>
+    </form>
+</body>
+
+</html>
+{{end}}

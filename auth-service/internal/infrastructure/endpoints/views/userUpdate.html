@@ -1,0 +1,39 @@
+{{define "userUpdate"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update papug</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>Update user</h2>
+    {{if .ErrEmailOccupied}} <h2>Email is already occupied!</h2> {{end}}
+    <form method="post" action="/users">
+        <p>
+            <label for="name">Name : </label>
+            <input type="text" placeholder="Enter Name" name="name" required {{if .Name}} value="{{.Name}}" {{end}}>
+        </p>
+
+        <p>
+            <label for="email">Email : </label>
+            <input type="text" placeholder="Enter Email" name="email" required {{if .Email}} value="{{.Email}}" {{end}}>
+        </p>
+
+        <p>
+            <label for="role">Role : </label>
+            <select id="role" name="role" required {{if .Role}} value="{{.Role}}" {{end}}>
+                {{range .RoleOptions}}
+                <option value={{.}}>{{.}}</option>
+                {{end}}
+            </select>
+        </p>
+
+        <button type="submit">Update user</button>
+    </form>
+</body>
+
+</html>
+{{end}}

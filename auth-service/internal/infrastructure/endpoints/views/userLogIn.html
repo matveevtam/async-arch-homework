@@ -1,0 +1,25 @@
+{{define "userLogIn"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Papug Login</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h1> Papug Login Form </h1>
+    {{if .ErrEmail}} <h2>Email is incorrect!</h2> {{end}}
+    {{if .ErrPassword}} <h2>Passowrd is incorrect!</h2> {{end}}
+    <form method="post">
+        <label>Email : </label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <label>Password : </label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <button type="submit">Log in</button>
+    </form>
+</body>
+
+</html>
+{{end}}

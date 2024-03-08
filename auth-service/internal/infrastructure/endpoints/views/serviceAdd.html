@@ -1,0 +1,25 @@
+{{define "serviceAdd"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add papug</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>Add service</h2>
+    {{if .ErrNameOccupied}} <h2>Name is already occupied!</h2> {{end}}
+    <form method="post" action="/services">
+        <p>
+            <label for="name">Name : </label>
+            <input type="text" placeholder="Enter Name" name="name" required {{if .Name}} value="{{.Name}}" {{end}}>
+        </p>
+
+        <button type="submit">Create service</button>
+    </form>
+</body>
+
+</html>
+{{end}}

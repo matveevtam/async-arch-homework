@@ -1,0 +1,36 @@
+{{define "userList"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Papug users</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>Current users</h2>
+    <a href="/users/add">Add user</a>
+    <table>
+        <tr>
+            <th>Public ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+
+        {{range .UserInfos}}
+        <tr>
+            <td>{{.PublicID}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Email}}</td>
+            <td>{{.Role}}</td>
+            <td><a href="/users/{{.PublicID}}">view</a></td>
+            <td><a href="/users/{{.PublicID}}/update">update</a></td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+
+</html>
+{{end}}

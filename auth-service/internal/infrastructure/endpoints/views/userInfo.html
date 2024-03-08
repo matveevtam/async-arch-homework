@@ -1,0 +1,34 @@
+{{define "userInfo"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>User {{.Name}}</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>User</h2>
+    <table>
+        <tr>
+            <td>Public ID</td>
+            <td>{{.PublicID}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{.Name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{.Email}}</td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>{{.Role}}</td>
+        </tr>
+    </table>
+</body>
+
+</html>
+{{end}}

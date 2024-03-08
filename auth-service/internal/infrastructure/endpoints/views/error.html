@@ -1,0 +1,17 @@
+{{define "error"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Papug error</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>Error {{.Code}}</h2>
+    <p>{{.Message}}</p>
+</body>
+
+</html>
+{{end}}

@@ -1,0 +1,30 @@
+{{define "serviceList"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Papug services</title>
+</head>
+
+<body>
+    {{template "menu"}}
+    <h2>Current services</h2>
+    <a href="/services/add">Add service</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Secret</th>
+        </tr>
+
+        {{range .ServiceInfos}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Secret}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+
+</html>
+{{end}}
